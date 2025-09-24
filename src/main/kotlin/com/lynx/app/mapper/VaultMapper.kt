@@ -6,8 +6,7 @@ import com.lynx.app.model.Vault
 class VaultMapper {
 
   fun fromDTO(vaultDto: VaultDTO): Vault? {
-
-    return Vault(name=vaultDto.name, password=vaultDto.password)
+    return Vault(vaultDto.email, vaultDto.password)
   }
 
 }

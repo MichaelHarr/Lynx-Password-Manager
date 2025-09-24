@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface VaultRepository : JpaRepository<Vault, Long> {
 
-  fun findByName(name: String): Vault?
+  fun findByEmail(email: String): Vault?
 }

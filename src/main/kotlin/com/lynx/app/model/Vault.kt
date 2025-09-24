@@ -11,16 +11,16 @@ import java.io.Serializable
 
 @Entity
 class Vault(
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  val id: Long? = null,
+  @Column(nullable = false)
+  var email: String,
 
   @Column(nullable = false)
-  var name: String? = null,
-
-  @Column(nullable = false)
-  var password: String? = null,
+  var password: String,
 
   @OneToMany(mappedBy = "vault", cascade = [(CascadeType.ALL)])
   var logins: MutableSet<Login> = mutableSetOf()
-) : Serializable
+) : Serializable {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  val id: Long? = null
+}

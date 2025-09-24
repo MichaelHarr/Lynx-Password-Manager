@@ -13,8 +13,8 @@ class MyCommands {
     return "Hello World!"
   }
 
-  @Command(command = ["pokemon"], description = "Get pokemon")
-  fun pokemon(): String {
+  @Command(command = ["login"], description = "Login into vault")
+  fun login(): String {
     return "The pokemon is ditto"
   }
 }

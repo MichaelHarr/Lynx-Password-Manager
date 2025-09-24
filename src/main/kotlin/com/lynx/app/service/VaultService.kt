@@ -10,12 +10,12 @@ import java.util.Optional
 class VaultService(val vaultRepository: VaultRepository) {
 
   fun createVault(vaultDto: VaultDTO): Vault {
-    val vault = Vault(name = vaultDto.name, password = vaultDto.password)
+    val vault = Vault(vaultDto.email, vaultDto.password)
     return vaultRepository.save(vault)
   }
 
   fun getVaultByName(name: String): Vault? {
-    val vault: Vault? = vaultRepository.findByName(name)
+    val vault: Vault? = vaultRepository.findByEmail(name)
     return vault
   }
 
@@ -30,9 +30,4 @@ class VaultService(val vaultRepository: VaultRepository) {
   fun getAllVaults(): List<Vault> {
     return vaultRepository.findAll()
   }
-
-//  fun updateVault(vault: Vault): Vault? {
-//    val existingVault: Vault = vaultRepository.findByName(vault.name) ?: return null
-//    return vaultRepository.save(existingVault)
-// }
 }
